@@ -103,7 +103,7 @@ void Game::ComposeFrame()
 		{
 			if (x % brd.getWidth() == 0 || y % brd.getHeight() == 0)
 			{
-				gfx.PutPixel(x, y, Colors::Gray);
+				gfx.PutPixel(x, y, Colors::Green);
 			}
 		}
 	}
