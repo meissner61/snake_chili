@@ -9,9 +9,15 @@ void Goal::Respawn(Board & brd, Snake & snake)
 {
 	srand(time(NULL));
 
-	int x_loc = rand() % (brd.getWidth()-1);
-	int y_loc = rand() % (brd.getHeight()-1);
-	m_loc = { x_loc,y_loc };
+	do
+	{
+		int x_loc = rand() % (brd.getWidth() - 1);
+		int y_loc = rand() % (brd.getHeight() - 1);
+		m_loc = { x_loc,y_loc };
+
+	} while (snake.SnakeCollision(m_loc));
+
+	
 
 }
 

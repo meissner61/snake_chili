@@ -64,6 +64,19 @@ bool Snake::SelfCollision(const Location & delta_loc) const
 	return false;
 }
 
+bool Snake::SnakeCollision(const Location & in_loc) const
+{
+	Location loc = in_loc;
+	for (int i = 0; i < nSegments - 1; i++)
+	{
+		if (loc == segments[i].GetLocation())
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 /////////////////////////////////////////////////////////
 
 void Snake::Segment::InitHead(const Location & loc)

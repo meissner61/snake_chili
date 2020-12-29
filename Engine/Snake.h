@@ -30,6 +30,7 @@ public:
 	Location GetLocation() const;
 	Location GetNextLocation(const Location& delta_loc) const;
 	bool SelfCollision(const Location& delta_loc)const;
+	bool SnakeCollision(const Location& in_loc) const;
 
 
 private:
