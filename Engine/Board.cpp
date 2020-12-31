@@ -40,3 +40,17 @@ int Board::getBoardDimension() const
 {
 	return dimension;
 }
+
+void Board::DrawGrid()
+{
+	for (int x = (boardOffset * getBoardDimension()) + 1; x < (getWidth() + boardOffset) * getBoardDimension(); x++)
+	{
+		for (int y = (boardOffset * getBoardDimension()) + 1; y < (getHeight() + boardOffset) * getBoardDimension(); y++)
+		{
+			if (x % getBoardDimension() == 0 || y % getBoardDimension() == 0)
+			{
+				gfx.PutPixel(x, y, Colors::Green);
+			}
+		}
+	}
+}

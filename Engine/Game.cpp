@@ -105,16 +105,7 @@ void Game::ComposeFrame()
 	goal.Draw(brd);
 	snek.Draw(brd);
 	//if (x == 0 || y == 0 || x == brd.getWidth()-1 || y == brd.getHeight()-1)
-	for (int x = (brd.boardOffset * brd.getBoardDimension())+1; x < (brd.getWidth()+ brd.boardOffset) * brd.getBoardDimension(); x++)
-	{
-		for (int y = (brd.boardOffset * brd.getBoardDimension())+1; y < (brd.getHeight()+ brd.boardOffset) * brd.getBoardDimension(); y++)
-		{
-			if (x % brd.getBoardDimension() == 0 || y % brd.getBoardDimension() == 0)
-			{
-				gfx.PutPixel(x, y, Colors::Green);
-			}
-		}
-	}
+	brd.DrawGrid();
 
 
 

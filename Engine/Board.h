@@ -13,6 +13,7 @@ public:
 	int getWidth() const;
 	int getHeight() const;
 	int getBoardDimension() const;
+	void DrawGrid();
 	static constexpr int boardOffset = 5;
 	static constexpr int padding = 3;
 	Graphics &gfx;
