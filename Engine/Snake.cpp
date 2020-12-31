@@ -3,7 +3,24 @@
 
 Snake::Snake(const Location & loc)
 {
+	// even though its 3 colors, setting it as 4 is necessary to make it easier to mod(%) calculate through
+	static constexpr int nBodyColors = 4;
+	static constexpr Color bodyColors[nBodyColors] = 
+	{
+		{10,100,32},
+		{10,130,48},
+		{18,160,48},
+		{10,130,48}
+	};
+
+	for (int i = 0; i < nSegmentMax; ++i)
+	{
+		segments[i].InitBody(bodyColors[i % nBodyColors]);
+	}
+
 	segments[0].InitHead(loc);
+
+
 }
 
 void Snake::MoveBy(Location & delta_loc)
@@ -22,7 +39,7 @@ void Snake::Grow()
 
 	if (nSegments < nSegmentMax)
 	{
-		segments[nSegments].InitBody();
+		//segments[nSegments].InitBody();
 		nSegments++;
 		
 	}
@@ -85,10 +102,9 @@ void Snake::Segment::InitHead(const Location & loc)
 	m_color = Snake::headColor;
 }
 
-void Snake::Segment::InitBody()
+void Snake::Segment::InitBody(Color c)
 {
-	//m_loc = loc;
-	m_color = Snake::bodyColor;
+	m_color = c;
 }
 
 void Snake::Segment::Follow(const Segment & next)
