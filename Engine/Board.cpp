@@ -15,7 +15,7 @@ void Board::DrawCell(const Location& loc, Color c)
 	assert(loc.y >= 0);
 	assert(loc.y < height);
 
-	gfx.DrawRectDim((loc.x + boardOffset)*dimension, (loc.y + boardOffset)*dimension, dimension,  dimension, c);
+	gfx.DrawRectDim(((loc.x + boardOffset)*dimension) + padding, ((loc.y + boardOffset)*dimension) + padding, (dimension - (padding * 2) + 1), (dimension - (padding * 2) + 1), c);
 }
 
 bool Board::IsInsideBoard(const Location & loc) const
