@@ -22,8 +22,8 @@ private:
 	static constexpr int dimension = 20;
 
 	//width and height of the whole board not the squares
-	static constexpr int width = 20;
-	static constexpr int height = 20;
+	static constexpr int width = 25;
+	static constexpr int height = 25;
 
 	
 

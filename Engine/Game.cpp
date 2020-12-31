@@ -73,14 +73,20 @@ void Game::UpdateModel()
 
 			else
 			{
-
-				if (snek.GetNextLocation(delta_loc) == goal.GetLocation())
+				const bool eating = snek.GetNextLocation(delta_loc) == goal.GetLocation();
+				if (eating)
 				{
 					snek.Grow();
-					goal.Respawn(brd, snek); // dont forget to add a check to make sure goal doesnt respawn inside snake
 				}
 
 				snek.MoveBy(delta_loc);
+
+				if (eating)
+				{
+					goal.Respawn(brd, snek);
+				}
+
+				
 			}
 
 
@@ -97,11 +103,11 @@ void Game::UpdateModel()
 void Game::ComposeFrame()
 {
 	//if (x == 0 || y == 0 || x == brd.getWidth()-1 || y == brd.getHeight()-1)
-	for (int x = 1; x < (brd.getWidth() - 1) * brd.getBoardDimension(); x++)
+	for (int x = 1; x < (brd.getWidth() ) * brd.getBoardDimension(); x++)
 	{
-		for (int y = 1; y < (brd.getHeight() - 1) * brd.getBoardDimension(); y++)
+		for (int y = 1; y < (brd.getHeight() ) * brd.getBoardDimension(); y++)
 		{
-			if (x % brd.getWidth() == 0 || y % brd.getHeight() == 0)
+			if (x % brd.getBoardDimension() == 0 || y % brd.getBoardDimension() == 0)
 			{
 				gfx.PutPixel(x, y, Colors::Green);
 			}
