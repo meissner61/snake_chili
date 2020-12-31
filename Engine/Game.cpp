@@ -103,9 +103,9 @@ void Game::UpdateModel()
 void Game::ComposeFrame()
 {
 	//if (x == 0 || y == 0 || x == brd.getWidth()-1 || y == brd.getHeight()-1)
-	for (int x = 1; x < (brd.getWidth() ) * brd.getBoardDimension(); x++)
+	for (int x = brd.boardOffset * brd.getBoardDimension(); x <= (brd.getWidth()+ brd.boardOffset) * brd.getBoardDimension(); x++)
 	{
-		for (int y = 1; y < (brd.getHeight() ) * brd.getBoardDimension(); y++)
+		for (int y = brd.boardOffset * brd.getBoardDimension(); y <= (brd.getHeight()+ brd.boardOffset) * brd.getBoardDimension(); y++)
 		{
 			if (x % brd.getBoardDimension() == 0 || y % brd.getBoardDimension() == 0)
 			{

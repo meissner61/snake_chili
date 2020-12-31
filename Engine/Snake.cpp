@@ -105,7 +105,6 @@ void Snake::Segment::MoveBy(Location & delta_loc)
 void Snake::Segment::Draw(Board & brd) const
 {
 	brd.DrawCell(m_loc, m_color);
-
 }
 
 Location Snake::Segment::GetLocation() const

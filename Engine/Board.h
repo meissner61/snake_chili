@@ -13,7 +13,8 @@ public:
 	int getWidth() const;
 	int getHeight() const;
 	int getBoardDimension() const;
-	static constexpr int boardOffset = 0;
+	static constexpr int boardOffset = 10;
+	static constexpr int padding = 0;
 	Graphics &gfx;
 
 private:
@@ -22,8 +23,8 @@ private:
 	static constexpr int dimension = 20;
 
 	//width and height of the whole board not the squares
-	static constexpr int width = 25;
-	static constexpr int height = 25;
+	static constexpr int width = 10;
+	static constexpr int height = 10;
 
 	
 
